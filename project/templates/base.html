@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>homework</title>
+
+    <script src="{{url_for('static', filename='js/jquery-1.11.1.min.js')}}"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- 顶部导航栏-->
+    <div class=" navbar" role="navigation">
+        <ol class="breadcrumb">
+            <li>作业发布</li>
+            <li class="active"><a href="{{url_for('index')}}">主页</a></li>
+        </ol>
+    </div>
+   
+    <div class="container holder">
+    
+
+    {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

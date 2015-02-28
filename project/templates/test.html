@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>microblog</title>
+  </head>
+  <body>
+    <form action="" method="post">
+        <div><textarea cols="40" name="text"></textarea></div>
+        <div><textarea cols="40" name="password"></textarea></div>
+        <div><input type="submit" /></div>
+    </form>
+    {% for row in msgs: %}
+      <div><p>{{row[-1]}}</p></div>
+    {% endfor %}
+  </body>
+</html>
