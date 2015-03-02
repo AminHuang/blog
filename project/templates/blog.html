@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Blog-Flask</h1>
+<div class="well">
+  <h2>{{ blog[0] }}</h2>
+  <p>{{ blog[1] }}</p>
+  <p class="col-sm-offset-6">修改时间：{{ blog[2] }}</p>
+</div>
+
+{% endblock %}

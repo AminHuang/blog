@@ -25,12 +25,23 @@ def teardown_request(exception):
 @app.route('/')
 @app.route('/index')
 def index():
-    # if not session.get('logged_in'):
-    #     return redirect(url_for('login'))
-    # return redirect(url_for('edit'))
-    return render_template('index.html')
+    c = g.db.cursor()
+    c.execute("select titleId, titleName, contentSimple from blog")
+    blogs = list(c.fetchall())
+    blogs.reverse()
+    return render_template('index.html', blogs=blogs)
+
+@app.route('/blog/<int:titleId>')
+def blog(titleId):
+    c = g.db.cursor()
+    c.execute("select titleName, contentDetail, date from blog where titleId = '%s'" % titleId)
+    blogs = list(c.fetchall())
+    blog = blogs[0]
+    return render_template('blog.html', blog=blog)
+
 
 @app.route('/edit', methods=['GET', 'POST'])
+@app.route('/edit/<int:titleId>', methods=['GET', 'POST'])
 def edit():
     if request.method == 'POST':
         c = g.db.cursor()
