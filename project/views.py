@@ -13,10 +13,15 @@ from sae.const import (MYSQL_HOST, MYSQL_HOST_S,
     MYSQL_PORT, MYSQL_USER, MYSQL_PASS, MYSQL_DB
 )
 
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 @app.before_request
 def before_request():
     g.db = MySQLdb.connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS,
-                           MYSQL_DB, port=int(MYSQL_PORT))
+                           MYSQL_DB, port=int(MYSQL_PORT), charset='utf8')
 
 @app.teardown_request
 def teardown_request(exception):
