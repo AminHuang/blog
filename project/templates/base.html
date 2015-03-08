@@ -14,6 +14,10 @@
 
     <link href="{{url_for('static', filename='css/blog.css')}}" rel="stylesheet">
 
+    <script type=text/javascript>
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+
     {% block link %}{% endblock %}
 
   </head>
@@ -40,5 +44,6 @@
     {% block content %}{% endblock %}
     </div>
     </div>
+    {% block endlink %}{% endblock %}
   </body>
 </html>
