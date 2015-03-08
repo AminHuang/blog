@@ -1,9 +1,19 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="well">
-  <h2>{{ blog[0] }}</h2>
-  <p>{{ blog[1] }}</p>
-  <p class="col-sm-offset-6">修改时间：{{ blog[2] }}</p>
-</div>
+{% extends "base-blog.html" %}
+{% block blog%}
+<div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">{{ blog[0] }}</h2>
+            
+            <p>{{ blog[1] }}</p>
+            <p class="blog-post-meta">修改时间：{{ blog[2] }}</p>
+            
+          </div><!-- /.blog-post -->
+
+
+
+
+        </div><!-- /.blog-main -->
+
 
 {% endblock %}

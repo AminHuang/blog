@@ -33,7 +33,7 @@ def teardown_request(exception):
 @app.route('/index')
 def index():
     c = g.db.cursor()
-    c.execute("select titleId, titleName, contentSimple from blog")
+    c.execute("select titleId, titleName, contentSimple, date from blog")
     blogs = list(c.fetchall())
     blogs.reverse()
     return render_template('index.html', blogs=blogs)

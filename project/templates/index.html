@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base-blog.html" %}
 
 <!-- link -->
 {% block link %}
@@ -7,15 +7,30 @@
 <!-- end link -->
 
 <!-- content -->
-{% block content %}
+{% block blog%}
 
-{% for blog in blogs%}
-  <div class="blog">
-    <h2>{{ blog[1] }}</h2>
-    <p>{{ blog[2] }}</p>
-    <a href="{{url_for('blog',titleId=blog[0])}}" class="btn btn-primary">阅读全文</a>
-  </div>
-{% endfor %}
+        <div class="col-sm-8 blog-main">
+          {% for blog in blogs%}
+          <div class="blog-post">
+            <h2 class="blog-post-title">{{ blog[1] }}</h2>
+            <p class="blog-post-meta">{{ blog[3] }} by <a href="#">AminHuang</a></p>
+            <p>{{ blog[2] }}</p>
+            <a href="{{url_for('blog',titleId=blog[0])}}" class="btn btn-primary">阅读全文</a>
+            
+          </div><!-- /.blog-post -->
+          {% endfor %}
+
+          <nav>
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+
+
 
 {% endblock %}
 <!-- end content -->

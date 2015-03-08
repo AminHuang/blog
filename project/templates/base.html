@@ -12,11 +12,14 @@
 
     <link href="{{url_for('static', filename='css/base.css')}}" rel="stylesheet">
 
+    <link href="{{url_for('static', filename='css/blog.css')}}" rel="stylesheet">
+
     {% block link %}{% endblock %}
 
   </head>
   <body>
     <!-- 顶部-->
+    <header>
     <div class="base-header ">
       <nav>
         <ol class="breadcrumb">
@@ -25,11 +28,7 @@
         </ol>
       </nav>
 
-      <header>
-        <div class="col-sm-offset-2">
-          <h1>Blog-Flask</h1>
-          <small>to be continued</small>
-        </div>
+      
       </header>
     </div>
     <!-- 顶部-->
